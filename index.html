@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antipas Musekiwa | Cybersecurity Enthusiast</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0dcaf0;
+            --secondary-color: #20c997;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --text-color: #f8f9fa;
+            --light-text: #adb5bd;
+        }
+
+        [data-bs-theme="light"] {
+            --dark-bg: #f8f9fa;
+            --darker-bg: #e9ecef;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --light-text: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.95) !important;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Home Section */
+        #home {
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(13, 202, 240, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(32, 201, 151, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        #home .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cyber-icon {
+            font-size: 15rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(13, 202, 240, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 10px rgba(13, 202, 240, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(13, 202, 240, 0.8), 0 0 30px rgba(13, 202, 240, 0.6);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(13, 202, 240, 0.5);
+            }
+        }
+
+        .typing-container {
+            min-height: 2.5rem;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        /* About Section */
+        .skills-container .badge {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skills-container .badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Projects Section */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* Resume Section */
+        .resume-item {
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Contact Section */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-5px);
+        }
+
+        /* Form */
+        .form-control {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+        }
+
+        .form-control:focus {
+            background-color: var(--card-bg);
+            border-color: var(--primary-color);
+            color: var(--text-color);
+            box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.25);
+        }
+
+        .form-label {
+            color: var(--text-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            color: var(--light-text);
+        }
+
+        /* Project Pages Styles */
+        .project-page {
+            background-color: #121212;
+            color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .project-container {
+            max-width: 800px;
+        }
+        .project-card {
+            background-color: #1e1e1e;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .project-form-control {
+            background-color: #2d2d2d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f8f9fa;
+        }
+        .project-form-control:focus {
+            background-color: #2d2d2d;
+            border-color: #0dcaf0;
+            color: #f8f9fa;
+            box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.25);
+        }
+        .strength-meter {
+            height: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        .weak {
+            background: linear-gradient(90deg, #dc3545, #ff6b6b);
+            width: 33%;
+        }
+        .medium {
+            background: linear-gradient(90deg, #ffc107, #ffd54f);
+            width: 66%;
+        }
+        .strong {
+            background: linear-gradient(90deg, #20c997, #51cf66);
+            width: 100%;
+        }
+        .criteria-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .criteria-list li {
+            margin-bottom: 8px;
+        }
+        .criteria-list i {
+            margin-right: 8px;
+        }
+        .valid {
+            color: #20c997;
+        }
+        .invalid {
+            color: #dc3545;
+        }
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .quiz-option:hover {
+            background-color: rgba(13, 202, 240, 0.1);
+        }
+        .quiz-option.selected {
+            background-color: rgba(13, 202, 240, 0.2);
+            border-color: #0dcaf0;
+        }
+        .correct {
+            background-color: rgba(32, 201, 151, 0.2) !important;
+            border-color: #20c997 !important;
+        }
+        .incorrect {
+            background-color: rgba(220, 53, 69, 0.2) !important;
+            border-color: #dc3545 !important;
+        }
+        .port-scanning {
+            background: linear-gradient(90deg, #0dcaf0, #20c997);
+            background-size: 200% 100%;
+            animation: scanning 2s infinite;
+        }
+        @keyframes scanning {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .scan-results {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .port-status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+        .port-open {
+            background-color: rgba(32, 201, 151, 0.2);
+            border-left: 4px solid #20c997;
+        }
+        .port-closed {
+            background-color: rgba(108, 117, 125, 0.2);
+            border-left: 4px solid #6c757d;
+        }
+        .port-filtered {
+            background-color: rgba(255, 193, 7, 0.2);
+            border-left: 4px solid #ffc107;
+        }
+
+        /* AOS Styles */
+        [data-aos] {
+            pointer-events: none;
+        }
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+
+        .aos-init {
+            opacity: 0;
+            transition-property: opacity, transform;
+            transition-duration: 0.8s;
+        }
+
+        .aos-animate {
+            opacity: 1;
+        }
+
+        /* Fade animations */
+        [data-aos^="fade"][data-aos^="fade"] {
+            opacity: 0;
+            transition-property: opacity, transform;
+        }
+
+        [data-aos="fade-up"] {
+            transform: translate3d(0, 100px, 0);
+        }
+
+        [data-aos="fade-down"] {
+            transform: translate3d(0, -100px, 0);
+        }
+
+        [data-aos="fade-right"] {
+            transform: translate3d(-100px, 0, 0);
+        }
+
+        [data-aos="fade-left"] {
+            transform: translate3d(100px, 0, 0);
+        }
+
+        [data-aos="fade-up"].aos-animate,
+        [data-aos="fade-down"].aos-animate,
+        [data-aos="fade-right"].aos-animate,
+        [data-aos="fade-left"].aos-animate {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+
+        /* Zoom animations */
+        [data-aos^="zoom"][data-aos^="zoom"] {
+            opacity: 0;
+            transition-property: opacity, transform;
+        }
+
+        [data-aos="zoom-in"] {
+            transform: scale(0.6);
+        }
+
+        [data-aos="zoom-in"].aos-animate {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        [data-aos="zoom-out"] {
+            transform: scale(1.2);
+        }
+
+        [data-aos="zoom-out"].aos-animate {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cyber-icon {
+                font-size: 8rem;
+            }
+            
+            .display-3 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body data-bs-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-shield-alt me-2"></i>Antipas Musekiwa
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resume">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="themeToggle" class="btn btn-outline-info ms-2">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="min-vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold mb-3">Antipas Musekiwa</h1>
+                    <h2 class="h4 mb-4 text-info">Cybersecurity Enthusiast | College Student | Future Ethical Hacker</h2>
+                    <p class="lead mb-4">I'm passionate about ethical hacking, digital forensics, and cyber defense. My goal is to help secure digital infrastructures against evolving threats.</p>
+                    <div class="typing-container mb-4">
+                        <span id="typing-text" class="h5 text-success"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <a href="#about" class="btn btn-outline-info btn-lg">Learn More</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="cyber-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <h2 class="section-title mb-4">About Me</h2>
+                    <p class="mb-4">Antipas Musekiwa is a Computer Science student at Midlands State University, pursuing a career in cybersecurity. With a strong foundation in computer systems and networking, I'm focused on developing the skills needed to protect digital assets and infrastructure.</p>
+                    <p class="mb-4">My journey into cybersecurity began with curiosity about how systems work and how they can be secured. I'm currently expanding my knowledge in penetration testing, network security, and digital forensics.</p>
+                    <div class="d-grid gap-2 d-md-flex">
+                        <a href="#projects" class="btn btn-info me-md-2">View Projects</a>
+                        <a href="#contact" class="btn btn-outline-info">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="mb-4">Skills & Expertise</h3>
+                    <div class="skills-container">
+                        <span class="badge bg-primary mb-2">HTML</span>
+                        <span class="badge bg-primary mb-2">CSS</span>
+                        <span class="badge bg-primary mb-2">JavaScript</span>
+                        <span class="badge bg-primary mb-2">Python</span>
+                        <span class="badge bg-success mb-2">Linux</span>
+                        <span class="badge bg-success mb-2">Networking</span>
+                        <span class="badge bg-danger mb-2">Web Security</span>
+                        <span class="badge bg-danger mb-2">Penetration Testing</span>
+                        <span class="badge bg-warning mb-2">Digital Forensics</span>
+                        <span class="badge bg-warning mb-2">Cryptography</span>
+                    </div>
+                    
+                    <h3 class="mt-5 mb-4">Cybersecurity Interests</h3>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-shield-alt text-info me-3"></i>
+                                <span>Network Security</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-user-secret text-info me-3"></i>
+                                <span>Ethical Hacking</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-search text-info me-3"></i>
+                                <span>Digital Forensics</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-lock text-info me-3"></i>
+                                <span>Cryptography</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Cybersecurity Projects</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 project-card">
+                        <div class="card-body text-center">
+                            <div class="project-icon mb-3">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <h4 class="card-title">Password Strength Checker</h4>
+                            <p class="card-text">Evaluate the strength of passwords based on length, character variety, and complexity to help users create secure credentials.</p>
+                            <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#passwordCheckerModal">Try It Out</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 project-card">
+                        <div class="card-body text-center">
+                            <div class="project-icon mb-3">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <h4 class="card-title">Phishing Awareness Quiz</h4>
+                            <p class="card-text">Test your knowledge of phishing tactics and learn how to identify suspicious emails and websites.</p>
+                            <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#phishingQuizModal">Take the Quiz</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 project-card">
+                        <div class="card-body text-center">
+                            <div class="project-icon mb-3">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h4 class="card-title">Network Port Scanner</h4>
+                            <p class="card-text">A simulated port scanning tool that demonstrates how security professionals identify open ports on networked systems.</p>
+                            <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#portScannerModal">Run Scanner</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Education & Career Goals</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-5" data-aos="fade-up">
+                    <h3 class="mb-4">Education</h3>
+                    <div class="resume-item mb-4">
+                        <h4>BSc Computer Science</h4>
+                        <p class="text-info">Midlands State University</p>
+                        <p>Currently pursuing a degree in Computer Science with a focus on cybersecurity, networking, and system administration.</p>
+                    </div>
+                    
+                    <h3 class="mb-4">Certifications</h3>
+                    <div class="resume-item">
+                        <h4>Security+ (In Progress)</h4>
+                        <p>CompTIA Security+ certification preparation focusing on network security, threats, vulnerabilities, and access control.</p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>CEH (In Progress)</h4>
+                        <p>Certified Ethical Hacker certification preparation covering penetration testing, vulnerability assessment, and security tools.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="mb-4">Career Goals</h3>
+                    <div class="resume-item mb-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="fas fa-bullseye text-info me-3 mt-1"></i>
+                            <div>
+                                <h4>Cybersecurity Analyst</h4>
+                                <p>Monitor network traffic, analyze security alerts, and implement security measures to protect organizational assets.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resume-item mb-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="fas fa-crosshairs text-info me-3 mt-1"></i>
+                            <div>
+                                <h4>Penetration Tester</h4>
+                                <p>Conduct authorized simulated attacks on computer systems to evaluate their security and identify vulnerabilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resume-item">
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="fas fa-shield-alt text-info me-3 mt-1"></i>
+                            <div>
+                                <h4>Security Consultant</h4>
+                                <p>Advise organizations on security best practices, risk management, and compliance with security standards.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                                <div class="invalid-feedback">
+                                    Please provide your name.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                            <div class="invalid-feedback">
+                                Please enter your message.
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-info btn-lg">Send Message</button>
+                        </div>
+                    </form>
+                    
+                    <div class="text-center mt-5">
+                        <h4 class="mb-4">Connect With Me</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <p class="mb-0">© 2025 Antipas Musekiwa | Built with passion for cybersecurity</p>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    
+    <!-- Password Checker Modal -->
+    <div class="modal fade" id="passwordCheckerModal" tabindex="-1" aria-labelledby="passwordCheckerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content project-page">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="passwordCheckerModalLabel"><i class="fas fa-key text-info"></i> Password Strength Checker</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container project-container py-3">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="text-center mb-4">
+                                    <p class="lead">Evaluate the security of your passwords based on length, character variety, and complexity.</p>
+                                </div>
+                                
+                                <div class="card p-4 mb-4">
+                                    <div class="mb-3">
+                                        <label for="passwordInput" class="form-label">Enter a password to check its strength:</label>
+                                        <input type="password" class="form-control project-form-control form-control-lg" id="passwordInput" placeholder="Type your password here">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between">
+                                            <span>Password Strength:</span>
+                                            <span id="strengthText">Not evaluated</span>
+                                        </div>
+                                        <div class="strength-meter" id="strengthMeter"></div>
+                                    </div>
+                                    
+                                    <div class="mt-4">
+                                        <h5>Password Requirements:</h5>
+                                        <ul class="criteria-list">
+                                            <li id="lengthCriteria"><i class="fas fa-times invalid"></i> At least 8 characters</li>
+                                            <li id="lowercaseCriteria"><i class="fas fa-times invalid"></i> Contains lowercase letters</li>
+                                            <li id="uppercaseCriteria"><i class="fas fa-times invalid"></i> Contains uppercase letters</li>
+                                            <li id="numberCriteria"><i class="fas fa-times invalid"></i> Contains numbers</li>
+                                            <li id="specialCriteria"><i class="fas fa-times invalid"></i> Contains special characters</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="card p-4">
+                                    <h4 class="mb-3">Password Security Tips</h4>
+                                    <ul>
+                                        <li>Use a minimum of 12 characters for important accounts</li>
+                                        <li>Combine uppercase, lowercase, numbers, and symbols</li>
+                                        <li>Avoid using personal information or common words</li>
+                                        <li>Use a unique password for each account</li>
+                                        <li>Consider using a password manager to generate and store strong passwords</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phishing Quiz Modal -->
+    <div class="modal fade" id="phishingQuizModal" tabindex="-1" aria-labelledby="phishingQuizModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content project-page">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="phishingQuizModalLabel"><i class="fas fa-fish text-info"></i> Phishing Awareness Quiz</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container project-container py-3">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="text-center mb-4">
+                                    <h1 class="display-6 mb-3">Phishing Awareness Quiz</h1>
+                                    <p class="lead">Test your knowledge of phishing tactics and learn how to identify suspicious emails and websites.</p>
+                                </div>
+                                
+                                <div id="quizContainer">
+                                    <div class="card p-4 text-center" id="startScreen">
+                                        <h3 class="mb-4">Are you ready to test your phishing knowledge?</h3>
+                                        <p class="mb-4">This quiz will present you with 5 questions about identifying phishing attempts.</p>
+                                        <button id="startQuiz" class="btn btn-info btn-lg">Start Quiz</button>
+                                    </div>
+                                    
+                                    <div id="quizQuestions" class="d-none">
+                                        <div class="card p-4 mb-4">
+                                            <h4 class="mb-4" id="questionText">Question will appear here</h4>
+                                            <div id="optionsContainer">
+                                                <!-- Options will be inserted here by JavaScript -->
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div id="progress">Question 1 of 5</div>
+                                            <button id="nextQuestion" class="btn btn-info">Next Question</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="resultsScreen" class="d-none">
+                                        <div class="card p-4 text-center">
+                                            <h3 class="mb-4">Quiz Complete!</h3>
+                                            <div class="display-4 mb-4" id="scoreDisplay">0/5</div>
+                                            <p id="resultMessage" class="mb-4"></p>
+                                            <button id="restartQuiz" class="btn btn-info">Take Quiz Again</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card p-4 mt-4">
+                                    <h4 class="mb-3">Phishing Prevention Tips</h4>
+                                    <ul>
+                                        <li>Check the sender's email address carefully for slight misspellings</li>
+                                        <li>Hover over links to see the actual URL before clicking</li>
+                                        <li>Be wary of urgent requests for personal information</li>
+                                        <li>Look for poor grammar and spelling mistakes</li>
+                                        <li>Verify suspicious emails by contacting the organization directly</li>
+                                        <li>Use multi-factor authentication for important accounts</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Port Scanner Modal -->
+    <div class="modal fade" id="portScannerModal" tabindex="-1" aria-labelledby="portScannerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content project-page">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="portScannerModalLabel"><i class="fas fa-network-wired text-info"></i> Network Port Scanner</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container project-container py-3">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="text-center mb-4">
+                                    <h1 class="display-6 mb-3">Network Port Scanner</h1>
+                                    <p class="lead">A simulated port scanning tool that demonstrates how security professionals identify open ports on networked systems.</p>
+                                </div>
+                                
+                                <div class="card p-4 mb-4">
+                                    <div class="mb-3">
+                                        <label for="targetInput" class="form-label">Target IP Address or Hostname:</label>
+                                        <input type="text" class="form-control project-form-control" id="targetInput" value="192.168.1.1" placeholder="Enter target IP or hostname">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="portRange" class="form-label">Port Range:</label>
+                                        <select class="form-select project-form-control" id="portRange">
+                                            <option value="common">Common Ports (1-1024)</option>
+                                            <option value="extended">Extended Range (1-10000)</option>
+                                            <option value="custom">Custom Range</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 d-none" id="customPortsContainer">
+                                        <label for="customPorts" class="form-label">Custom Ports (comma-separated or range):</label>
+                                        <input type="text" class="form-control project-form-control" id="customPorts" placeholder="e.g., 80,443 or 20-25">
+                                    </div>
+                                    <button id="startScan" class="btn btn-info w-100">Start Port Scan</button>
+                                </div>
+                                
+                                <div class="card p-4">
+                                    <h4 class="mb-3">Scan Results</h4>
+                                    <div id="scanProgress" class="progress mb-3 d-none">
+                                        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <div id="scanStatus" class="mb-3"></div>
+                                    <div id="scanResults" class="scan-results">
+                                        <!-- Results will be inserted here by JavaScript -->
+                                    </div>
+                                </div>
+                                
+                                <div class="card p-4 mt-4">
+                                    <h4 class="mb-3">Common Ports & Services</h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-dark table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Port</th>
+                                                    <th>Service</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>21</td>
+                                                    <td>FTP</td>
+                                                    <td>File Transfer Protocol</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>22</td>
+                                                    <td>SSH</td>
+                                                    <td>Secure Shell</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>80</td>
+                                                    <td>HTTP</td>
+                                                    <td>Web Server</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>443</td>
+                                                    <td>HTTPS</td>
+                                                    <td>Secure Web Server</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3389</td>
+                                                    <td>RDP</td>
+                                                    <td>Remote Desktop</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS (Animate On Scroll) simulation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize animations
+            initAOS();
+            
+            // Typing animation
+            typeText();
+            
+            // Theme toggle functionality
+            setupThemeToggle();
+            
+            // Smooth scrolling for navigation links
+            setupSmoothScrolling();
+            
+            // Contact form validation
+            setupContactForm();
+            
+            // Initialize project modals
+            initPasswordChecker();
+            initPhishingQuiz();
+            initPortScanner();
+        });
+
+        // AOS simulation
+        function initAOS() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('aos-animate');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('[data-aos]').forEach(el => {
+                el.classList.add('aos-init');
+                observer.observe(el);
+            });
+        }
+
+        // Typing animation for the tagline
+        function typeText() {
+            const text = "Securing the Future, One Byte at a Time.";
+            const typingElement = document.getElementById('typing-text');
+            let index = 0;
+            
+            function type() {
+                if (index < text.length) {
+                    typingElement.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(type, 100);
+                } else {
+                    setTimeout(deleteText, 2000);
+                }
+            }
+            
+            function deleteText() {
+                if (index > 0) {
+                    typingElement.textContent = text.substring(0, index - 1);
+                    index--;
+                    setTimeout(deleteText, 50);
+                } else {
+                    setTimeout(type, 500);
+                }
+            }
+            
+            // Start the typing animation
+            type();
+        }
+
+        // Theme toggle functionality
+        function setupThemeToggle() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+            
+            // Check for saved theme preference or default to dark
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            document.body.setAttribute('data-bs-theme', currentTheme);
+            updateThemeIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.body.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.body.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+            
+            function updateThemeIcon(theme) {
+                const themeIcon = document.querySelector('#themeToggle i');
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-sun';
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                }
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Contact form validation and submission
+        function setupContactForm() {
+            const form = document.getElementById('contactForm');
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                if (form.checkValidity()) {
+                    // In a real application, you would send the form data to a server here
+                    alert('Thank you for your message! I will get back to you soon.');
+                    form.reset();
+                    form.classList.remove('was-validated');
+                } else {
+                    form.classList.add('was-validated');
+                }
+            }, false);
+        }
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.backgroundColor = 'rgba(18, 18, 18, 0.95)';
+                navbar.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(18, 18, 18, 0.9)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Password Checker functionality
+        function initPasswordChecker() {
+            const passwordInput = document.getElementById('passwordInput');
+            const strengthText = document.getElementById('strengthText');
+            const strengthMeter = document.getElementById('strengthMeter');
+            
+            const criteria = {
+                length: document.getElementById('lengthCriteria'),
+                lowercase: document.getElementById('lowercaseCriteria'),
+                uppercase: document.getElementById('uppercaseCriteria'),
+                number: document.getElementById('numberCriteria'),
+                special: document.getElementById('specialCriteria')
+            };
+            
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                checkPasswordStrength(password);
+            });
+            
+            function checkPasswordStrength(password) {
+                let score = 0;
+                const requirements = {
+                    length: password.length >= 8,
+                    lowercase: /[a-z]/.test(password),
+                    uppercase: /[A-Z]/.test(password),
+                    number: /[0-9]/.test(password),
+                    special: /[^A-Za-z0-9]/.test(password)
+                };
+                
+                // Update criteria indicators
+                for (const [key, element] of Object.entries(criteria)) {
+                    const isValid = requirements[key];
+                    const icon = element.querySelector('i');
+                    
+                    if (isValid) {
+                        icon.className = 'fas fa-check valid';
+                        score++;
+                    } else {
+                        icon.className = 'fas fa-times invalid';
+                    }
+                }
+                
+                // Calculate strength based on score
+                let strength = 'Weak';
+                let strengthClass = 'weak';
+                
+                if (score >= 4) {
+                    strength = 'Strong';
+                    strengthClass = 'strong';
+                } else if (score >= 3) {
+                    strength = 'Medium';
+                    strengthClass = 'medium';
+                }
+                
+                // Update strength display
+                strengthText.textContent = strength;
+                strengthMeter.className = `strength-meter ${strengthClass}`;
+            }
+        }
+
+        // Phishing Quiz functionality
+        function initPhishingQuiz() {
+            const quizData = [
+                {
+                    question: "You receive an email from your bank asking you to verify your account details by clicking a link. What should you do?",
+                    options: [
+                        "Click the link and verify your details",
+                        "Call your bank using the number on your card to verify",
+                        "Forward the email to friends to warn them",
+                        "Ignore it completely"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "An email claims you've won a prize and asks for your personal information to claim it. This is likely:",
+                    options: [
+                        "A legitimate offer from a company",
+                        "A phishing attempt to steal your information",
+                        "A marketing survey",
+                        "A mistake sent to the wrong person"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "What is a common sign of a phishing email?",
+                    options: [
+                        "Professional branding and logos",
+                        "Urgent language demanding immediate action",
+                        "Clear contact information in the footer",
+                        "Personalized with your full name"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "You receive an email from a service you use with a link to reset your password, but you didn't request a reset. What should you do?",
+                    options: [
+                        "Click the link and reset your password",
+                        "Ignore the email completely",
+                        "Go directly to the service's website and change your password",
+                        "Reply to the email asking if it's legitimate"
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Which of these URLs is most likely legitimate?",
+                    options: [
+                        "http://paypa1-security.com",
+                        "https://www.paypal.com/security",
+                        "http://paypal.security-update.com",
+                        "https://paypal.secure-login.net"
+                    ],
+                    correct: 1
+                }
+            ];
+            
+            let currentQuestion = 0;
+            let score = 0;
+            let userAnswers = [];
+            
+            const startScreen = document.getElementById('startScreen');
+            const quizQuestions = document.getElementById('quizQuestions');
+            const resultsScreen = document.getElementById('resultsScreen');
+            const questionText = document.getElementById('questionText');
+            const optionsContainer = document.getElementById('optionsContainer');
+            const progress = document.getElementById('progress');
+            const nextButton = document.getElementById('nextQuestion');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const resultMessage = document.getElementById('resultMessage');
+            const startButton = document.getElementById('startQuiz');
+            const restartButton = document.getElementById('restartQuiz');
+            
+            startButton.addEventListener('click', startQuiz);
+            nextButton.addEventListener('click', nextQuestion);
+            restartButton.addEventListener('click', restartQuiz);
+            
+            function startQuiz() {
+                startScreen.classList.add('d-none');
+                quizQuestions.classList.remove('d-none');
+                currentQuestion = 0;
+                score = 0;
+                userAnswers = [];
+                showQuestion();
+            }
+            
+            function showQuestion() {
+                const question = quizData[currentQuestion];
+                questionText.textContent = question.question;
+                optionsContainer.innerHTML = '';
+                
+                progress.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+                
+                question.options.forEach((option, index) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'form-check mb-2 quiz-option';
+                    optionElement.innerHTML = `
+                        <input class="form-check-input" type="radio" name="quizOption" id="option${index}" value="${index}">
+                        <label class="form-check-label w-100 p-2" for="option${index}">
+                            ${option}
+                        </label>
+                    `;
+                    optionsContainer.appendChild(optionElement);
+                    
+                    // Add event listener to select option
+                    optionElement.addEventListener('click', function() {
+                        document.querySelectorAll('input[name="quizOption"]').forEach(radio => {
+                            radio.checked = false;
+                            radio.closest('.quiz-option').classList.remove('selected');
+                        });
+                        
+                        const radio = this.querySelector('input');
+                        radio.checked = true;
+                        this.classList.add('selected');
+                        nextButton.disabled = false;
+                    });
+                });
+                
+                nextButton.disabled = true;
+            }
+            
+            function nextQuestion() {
+                const selectedOption = document.querySelector('input[name="quizOption"]:checked');
+                if (!selectedOption) return;
+                
+                const answer = parseInt(selectedOption.value);
+                userAnswers.push(answer);
+                
+                // Check if answer is correct
+                if (answer === quizData[currentQuestion].correct) {
+                    score++;
+                }
+                
+                currentQuestion++;
+                
+                if (currentQuestion < quizData.length) {
+                    showQuestion();
+                } else {
+                    showResults();
+                }
+            }
+            
+            function showResults() {
+                quizQuestions.classList.add('d-none');
+                resultsScreen.classList.remove('d-none');
+                
+                scoreDisplay.textContent = `${score}/${quizData.length}`;
+                
+                if (score === quizData.length) {
+                    resultMessage.textContent = "Excellent! You have strong phishing awareness skills.";
+                } else if (score >= quizData.length * 0.7) {
+                    resultMessage.textContent = "Good job! You have a good understanding of phishing threats.";
+                } else {
+                    resultMessage.textContent = "Be careful! Review the phishing prevention tips to improve your awareness.";
+                }
+            }
+            
+            function restartQuiz() {
+                resultsScreen.classList.add('d-none');
+                startScreen.classList.remove('d-none');
+            }
+        }
+
+        // Port Scanner functionality
+        function initPortScanner() {
+            const targetInput = document.getElementById('targetInput');
+            const portRange = document.getElementById('portRange');
+            const customPortsContainer = document.getElementById('customPortsContainer');
+            const customPorts = document.getElementById('customPorts');
+            const startScan = document.getElementById('startScan');
+            const scanProgress = document.getElementById('scanProgress');
+            const progressBar = document.getElementById('progressBar');
+            const scanStatus = document.getElementById('scanStatus');
+            const scanResults = document.getElementById('scanResults');
+            
+            // Show/hide custom ports input
+            portRange.addEventListener('change', function() {
+                if (this.value === 'custom') {
+                    customPortsContainer.classList.remove('d-none');
+                } else {
+                    customPortsContainer.classList.add('d-none');
+                }
+            });
+            
+            startScan.addEventListener('click', function() {
+                const target = targetInput.value.trim();
+                if (!target) {
+                    alert('Please enter a target IP or hostname');
+                    return;
+                }
+                
+                // Get ports to scan
+                let ports = [];
+                if (portRange.value === 'common') {
+                    // Common ports
+                    ports = [21, 22, 23, 25, 53, 80, 110, 143, 443, 993, 995, 3389];
+                } else if (portRange.value === 'extended') {
+                    // Extended range - just a sample for demonstration
+                    ports = Array.from({length: 50}, (_, i) => i + 1);
+                } else if (portRange.value === 'custom') {
+                    const custom = customPorts.value.trim();
+                    if (!custom) {
+                        alert('Please enter custom ports');
+                        return;
+                    }
+                    
+                    // Parse custom ports (simple implementation)
+                    if (custom.includes('-')) {
+                        const [start, end] = custom.split('-').map(Number);
+                        ports = Array.from({length: end - start + 1}, (_, i) => start + i);
+                    } else if (custom.includes(',')) {
+                        ports = custom.split(',').map(Number);
+                    } else {
+                        ports = [Number(custom)];
+                    }
+                }
+                
+                // Start the scan
+                simulatePortScan(target, ports);
+            });
+            
+            function simulatePortScan(target, ports) {
+                scanProgress.classList.remove('d-none');
+                scanStatus.textContent = `Scanning ${target}...`;
+                scanResults.innerHTML = '';
+                startScan.disabled = true;
+                
+                let completed = 0;
+                const total = ports.length;
+                const openPorts = [];
+                
+                // Common services for demonstration
+                const commonServices = {
+                    21: 'FTP',
+                    22: 'SSH',
+                    23: 'Telnet',
+                    25: 'SMTP',
+                    53: 'DNS',
+                    80: 'HTTP',
+                    110: 'POP3',
+                    143: 'IMAP',
+                    443: 'HTTPS',
+                    993: 'IMAPS',
+                    995: 'POP3S',
+                    3389: 'RDP'
+                };
+                
+                // Simulate scanning each port
+                ports.forEach((port, index) => {
+                    setTimeout(() => {
+                        // Randomly determine if port is open (for demonstration)
+                        const isOpen = Math.random() > 0.7;
+                        const isFiltered = Math.random() > 0.9;
+                        
+                        // Update progress
+                        completed++;
+                        const progressPercent = (completed / total) * 100;
+                        progressBar.style.width = `${progressPercent}%`;
+                        
+                        // Add result
+                        const resultElement = document.createElement('div');
+                        resultElement.className = `port-status ${isOpen ? 'port-open' : (isFiltered ? 'port-filtered' : 'port-closed')}`;
+                        
+                        let statusText = '';
+                        if (isOpen) {
+                            statusText = `Port ${port} is open`;
+                            if (commonServices[port]) {
+                                statusText += ` (${commonServices[port]})`;
+                            }
+                            openPorts.push(port);
+                        } else if (isFiltered) {
+                            statusText = `Port ${port} is filtered`;
+                        } else {
+                            statusText = `Port ${port} is closed`;
+                        }
+                        
+                        resultElement.textContent = statusText;
+                        scanResults.appendChild(resultElement);
+                        
+                        // Update status when complete
+                        if (completed === total) {
+                            scanStatus.textContent = `Scan completed. Found ${openPorts.length} open ports.`;
+                            startScan.disabled = false;
+                            
+                            if (openPorts.length > 0) {
+                                const summary = document.createElement('div');
+                                summary.className = 'mt-3 p-3 bg-dark rounded';
+                                summary.innerHTML = `<strong>Open Ports Summary:</strong> ${openPorts.join(', ')}`;
+                                scanResults.appendChild(summary);
+                            }
+                        }
+                    }, index * 100); // Simulate delay between port checks
+                });
+            }
+        }
+    </script>
+</body>
+</html>
